@@ -14,6 +14,20 @@
 - Hashes allow detection of file modification without storing file contents.
 - SHA256 provides strong collision resistance and is widely supported
 
+## Phase 1 - Baseline Creation
+
+The baseline process walks the target directory recursively and hashes file
+contents using SHA256.
+Files are read in chunks to avoid memory exhaustion.
+Hashing failures do not terminate execution, ensuring resilience.
+The baseline is store in JSON format for readability and auditability. 
+
+## Phase 2 - Integrity Check
+
+The integrity check compares a fresh directory scan against a stored baseline.
+Differences are categorized as added, removed, or modified files.
+SHA256 has comparison ensures detection of even minimal file changes.
+This phase provides visibility only and does not attempt remediation.
 
 ---
  
@@ -29,7 +43,15 @@
 - No protection against baseline tampering
 - No real time alerts
 - No permission changes detection
+
+## Insight
+
+- Integrity monitoring detects change, not intent.
+- Further investigation is required to determine whether changes are authorized.
+
+
 ---
+
 
 ## Safety / Exam Warnings (Things that can break a system or cost points if done wrong)
 

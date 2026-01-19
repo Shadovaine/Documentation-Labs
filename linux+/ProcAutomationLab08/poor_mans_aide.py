@@ -46,24 +46,25 @@ def save_baseline(data):                                     # Function for savi
     with open(BASELINE_FILE, "w") as f:                      # writes baseline to disk
         json.dump(data, f, indent=2)
 
-#=====================
-# Loading the Baseline
-#=====================
-def load_baseline():
-    with open(BASELINE_FILE, "r") as f:
-         return json.load(f)
+
+#===============================
+# Phase 2 - Loading the Baseline
+#===============================
+def load_baseline():                                         # Its job is to load previouly trusted baseline from disk.
+    with open(BASELINE_FILE, "r") as f:                      # Opens aide_baseline.json
+         return json.load(f)                                 # Converts JSON to Python dictionary
 
 #=====================
 # Comparing baseline
 #=====================
-def compare(current, baseline):
-    added = current.keys() - baseline.keys()
-    removed = baseline.keys() - current.keys()
+def compare(current, baseline):                             # Compares current state vs baseline
+    added = current.keys() - baseline.keys()                # refers to files that exist NOW, but did NOT exist during baseline creation
+    removed = baseline.keys() - current.keys()              # refers to files that existed before but are now gone
     modified = {
-        f for f in current.keys() & baseline.keys()
-        if current [f] != baseline[f]
+        f for f in current.keys() & baseline.keys()         # refers to finding files that exist in both scans, and it ignores added and removed files
+        if current [f] != baseline[f]                       # Compares SHA256 hashes
     }
-    return added, removed, modified
+    return added, removed, modified                         # returns the output of these three sets
 
 #=====================
 # Argument Parsing
@@ -79,18 +80,24 @@ def main():
         save_baseline(data)                                                  # Commits data to disk
         print(f"[+] Baseline created with {len(data)} files")                # Output to user
 
+#===================
+# Phase 2 Logic
+#===================
     elif args.check:
-        baseline = load_baseline()
-        current = build_baseline(args.check)
-        added, removed, modified = compare(current, baseline)
+        baseline = load_baseline()                                           # Loaded trusted baseline 
+        current = build_baseline(args.check)                                 # Walks directory, re-hashes everything(Phase 1 logic)
+        added, removed, modified = compare(current, baseline)                # Performs the integrity comparison and produces the results
 
+#===========================================
+# Reporting the Results
+#===========================================
         print("[+] Integrity Check Results")
         print(f"  Added: {len(added)}")
         print(f"  Removed: {len(removed)}")
         print(f"  Modified: {len(modified)}")
 
         for f in modified:
-            print(f"  MODIFIED: {f}")
+            print(f"  MODIFIED: {f}")                                        # ONly modified files are listed
 
     else:
         parser.print_help()
