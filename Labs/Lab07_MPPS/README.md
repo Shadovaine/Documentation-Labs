@@ -1,32 +1,48 @@
 ---
 
-## Lab 07: Multi-User Permissions & Access Control
+# Lab07 - Multi-User Permissions & Access Control
 
-Every lab README **must** contain the following sections:
+## 1. Objective
 
-### 1. Purpose
 - To simulate a realistic multi-user Linux environment
 - Practice user, group, and permission management
 
-### Phase 1
-- Focuses on standard UNIX permissions and group-based access control
-- Creating and analyzing permission failures
+---
 
-### 2. Environment
-- OS: Rocky Linux
-- Version:
-- Kernel:
-- VM/Bare Metal: VMware Workstation
-- Network mode:
-- User context (root / sudo / user): multi-user
+## 2. Environment
 
-### 3. Preconditions
+- Target OS: Rocky Linux (RHEL-based)
+- Target Kernel: Linux 6.12.0-124.28.1.el10_1.x86_64
+- Control OS: Kali Linux
+- Control Kernel: Linux 6.18.5+kali-amd64
+- Version: 2025.4
+- Execution Context: Local VMware Workstation
+- VM/Bare Metal: NO
+- Network mode: NAT
+- Shell: Bash 
+- User context (root / sudo / user): Non-root with sudo, or root when applicable
+
+> Note: Although documentation was written from a Kali-Linux workstation, the
+> concepts and behaviors demonstrated are distribution-agnostic and directly
+> applicable to RHEL-based systems. 
+
+---
+
+## 3. Preconditions
+
 - Rocky Linux VM is running and accessible
 - Root or sudo privileges are available
 - No existing users or groups conflict with lab names
 - Documentation directory structure has been created on Kali
 
-### 4. Procedure
+---
+
+## 4. Procedure
+
+## Phase 1
+
+- Focuses on standard UNIX permissions and group-based access control
+- Creating and analyzing permission failures
 - Create user groups for different teams
 - create users and assign the to appropriate groups
 - Create a shared project directory
@@ -34,20 +50,28 @@ Every lab README **must** contain the following sections:
 - Test access as multiple users
 - Observe and document permission failures
 
-### 5. Validation & Results
+---
+
+## 5. Validation & Results
+
 - Engineering users can create files in the shared directory
 - Operations users receive permission denied errors
 - Group ownership inheritance functions as expected
 - Setgid behavior is confirmed on newly created files
 
-### 7. cleanup / Revert
+---
+
+## 7. Cleanup / Revert
+
 - No cleanup actions are performed at the end of Phase 1
 - Users, groups, and directories preserved for continuation of lab
 
 ---
 
 ## Validation Philosophy
+
 Validation is required.
+
 Examples:
 - `systemctl status`
 - `ss -tulnp`
@@ -60,7 +84,9 @@ No validation = incomplete lab.
 ---
 
 ## Troubleshooting Philosophy
+
 Errors are expected and documented. 
+
 Each issue should include:
 - Symptom
 - Root cause
@@ -70,7 +96,9 @@ Each issue should include:
 ---
 
 ## Decision Logging
+
 Every non-default or opinionated choice is explained.
+
 Examples: 
 - Filesystem selection
 - SELinux booleans
@@ -80,6 +108,7 @@ Examples:
 ---
 
 ## Change Log
+
 Include:
 - YYYY-MM-DD
 - Lab added:
@@ -88,6 +117,7 @@ Include:
 ---
 
 ## Ethics & Safety
+
 - No unauthorized access
 - No production systems
 - All offensive tools used in isolated labs only.
@@ -95,4 +125,5 @@ Include:
 ---
 
 ## Status 
+
 Active - continuously updated as skills improve.

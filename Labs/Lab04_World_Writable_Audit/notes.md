@@ -1,4 +1,4 @@
-# Lab07 - MPPS Notes
+# Lab04 - World Writable Audit Notes
 
 ## --- When to Create a Notes.md for a Lab ---
 - When you have a "ohh, that's why"
@@ -8,9 +8,7 @@
 - When an exam trap is realized
 
 ## Key Takeaways (1-3 bullet points summarizing what this lab taught you)
-- I learned users in the same group would share access to project files
-- users outside the group would be restricted
-- Group permissions alone would be sufficient for basic access control
+
 
 
 ---

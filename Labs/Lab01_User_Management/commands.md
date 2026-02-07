@@ -1,6 +1,6 @@
-# Commands Executed - Lab 01
+# Lab01 - User Managment Commands Executed 
 
-## OS & Kernel
+## Command Log
 
 cat /etc/os-release
   
@@ -17,12 +17,15 @@ BUG_REPORT_URL="https://bugs.kali.org/"
 ANSI_COLOR="1;31"
 
 uname -r
+
 6.17.10+kali-amd64
 
 uname -m
+
 x86_64
 
 hostnamectl
+
 Static hostname: Shadolab
        Icon name: computer-laptop
          Chassis: laptop 💻

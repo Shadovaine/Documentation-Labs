@@ -1,21 +1,6 @@
-# Commands Executed
+# Lab07 - MPPS Commands Executed
 
-## Lab 07: Users, Permission, Scheduling
-
-## Documentation Instructions
-- Not every section is going to be filled out for every lab
-- Remove the sections not needed for a lab
-- Order stays the same
-- Headings stay the same also
-
-## Mental Guideline (go through this checklist in your head for each lab)
-- What's the state?
-- What do I need to prepare?
-- Execute
-- Verify
-- Check exit codes
-- Fix if needed
--Verify again
+## Command Log
 
 # Phase 1: User, Group, and Permissions
 

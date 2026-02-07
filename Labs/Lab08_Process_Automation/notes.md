@@ -1,4 +1,4 @@
-# Notes
+# Lab08 Process Automation Notes
 
 ## --- When to Create a Notes.md for a Lab ---
 - When you have a "ohh, that's why"

@@ -1,40 +1,55 @@
----
+# Lab02 - Shell Debugging and Failure Handling
 
-## Shell Debugging and Failure Handling Lab README.md
-
-Every lab README **must** contain the following sections:
-
-### 1. Objective
+## 1. Objective
 
 Document and implement a Bash script that:
+
 - Uses shell debugging features
 - Fails predictably
 - Explains why it failed
-- Cleans up system aritfacts before exit
+- Cleans up system artifacts before exit
 
-### 2. Environment
-- OS: Kali Linux
+This lab focuses on building and validating scripts that fail safely and
+transparently, rather than silently and unpredictably.
+
+---
+
+## 2. Environment
+
+- Target OS: Rocky Linux(RHEL-based)
+- Target Kernel: Linux 6.12.0-124.28.1.el10_1.x86_64
+- Control OS: Kali Linux
+- Control Kernel: Linux 6.18.5+kali-amd64
 - Version: 2025.4
-- Kernel: 6.17.10+kali-amd64
+- Linux 6.18.5+kali-amd64
+- Execution Context: Local VMware Workstation
 - VM/Bare Metal: NO
-- Network mode: N/A
-- User context (root / sudo / user):
+- Network mode: NAT
+- Shell: Bash 
+- User context (root / sudo / user): Non-root with sudo, or root when applicable
 
-### 3. Preconditions
+> Note: Although documentation was written from a Kali-Linux workstation, the
+> concepts and behaviors demonstrated are distrobution-agnostic and directly
+> applicable to RHEL-based systems. 
+
+---
+
+## 3. Preconditions
+
 - A Linux OS with Bash installed (`/bin/bash`)
 - User has permission to:
   - Create files in `/tmp`
   - Execute shell scripts
-- Scrip is executed in a non-restricted shell environment
+- Script is executed in a non-restricted shell environment
 - No existing file named `/tmp/debug_demo.*` is required or assumed
-- the user understand that the script is designed to fail intentionally
-- Interactive shell may be zsh; script explicityly executes under bash via shebang
+- The user understands that the script is designed to fail intentionally
+- Interactive shell may be zsh; script explicitly executes under bash via shebang
+
+---
 
 ### 4. Procedure
 
-## Procedure
-
-1. Created the shell script file.
+1. Created a shell script to demonstrate controlled failure behavior.
 2. Added a bash shebang to explicitly define the interpreter.
 3. Enabled strict error handling and command tracing.
 4. Defined a temporary file path using the script process ID.
@@ -45,10 +60,11 @@ Document and implement a Bash script that:
 9. Executed a command designed to fail.
 10. Executed the script from the command line.
 
+---
 
-### 5. Validation
+## 5. Validation
 
-## Validation Results
+### Validation Results
 
 - The script exited immediately after the failing command.
 - An error message was displayed indicating:
@@ -63,27 +79,30 @@ Document and implement a Bash script that:
 - Verified `/tmp/debug_demo.*` did not exist after execution.
 - Confirmed error handler executed before cleanup.
 
+---
 
-### 6. Results
+## 6. Results
 
-- See commandsSD.md file for script results
+- Script behavior and exit codes were confirmed by command execution.
+- Cleanup logic was validated by inspecting '/tmp' post-execution.
+- Results are reproducible and consistent across repeated runs.
 
+---
 
-### 7. cleanup / Revert
+## 7. Clean-up / Revert
 
-## Cleanup
-
-Cleanup was handled automatically by the script using an `EXIT` trap.
+Clean-up was handled automatically by the script using an `EXIT` trap.
 
 - Temporary file created during execution was removed.
 - No manual cleanup actions were required.
 - System state was verified to be unchanged after script completion.
 
-
 ---
 
-## Validation Philosophy
-Validation is required.
+## 8. Validation Philosophy
+
+Validation is required for all labs.
+
 Examples:
 - `systemctl status`
 - `ss -tulnp`
@@ -95,8 +114,10 @@ No validation = incomplete lab.
 
 ---
 
-## Troubleshooting Philosophy
+## 9. Troubleshooting Philosphy
+
 Errors are expected and documented. 
+
 Each issue should include:
 - Symptom
 - Root cause
@@ -105,17 +126,18 @@ Each issue should include:
 
 ---
 
-## Decision Logging
+## 10. Decision Logging
+
 Every non-default or opinionated choice is explained.
+
 Examples: 
 - Filesystem selection
-- SELinux booleans
-- Firewall approach
-- Service configuration method
+- Shell options and error handling
+- Cleanup and failure-handling strategy
 
 ---
 
-## Change Log
+## 11. Change Log  
 Include:
 - YYYY-MM-DD
 - Lab added:
@@ -123,12 +145,13 @@ Include:
 
 ---
 
-## Ethics & Safety
+## 12. Ethics & Safety
 - No unauthorized access
 - No production systems
 - All offensive tools used in isolated labs only.
 
 ---
 
-## Status 
+## 13. Status 
+
 Active - continuously updated as skills improve.

@@ -1,7 +1,10 @@
-# Commands Executed - Audit Lab 04 - (World-Writable Files)
+# Lab04 - World Writable Audit Commands Executed
+
+## Command Log
 
 ## Pre-Checks
-Verify permissions and confirm target directory
+
+- Verify permissions and confirm target directory
 
 ```bash
 id htaoe
@@ -12,7 +15,11 @@ ls -ld /etc
 
 drwxr-xr-x 213 root root 12288 Jan  8 11:50 /etc
 
+```bash
+
 # Script Inspection
+
+```bash
 
 ls -l audit_etc_world_writable.sh
 
@@ -20,22 +27,25 @@ ls -l audit_etc_world_writable.sh
 
 head -n 5 audit_etc_world_writable.sh
 
-#!/usr/bin/env bash
-
-# Lab 04 - Audit World-Writable Files in /etc
-# Author: ShadoVaine
-# Purpose: Identify insecure file permissions
+```bash
 
 #Script Execution
 
+```bash
+
 chmod +x audit_etc_world_writable.sh
+
 - output was a command prompt(signifying its success)
 
 ./audit_etc_world_writable.sh
 
 Audit complete. REsults saved to world_writable_etc_files.txt
 
+```bash
+
 # Debug Execution
+
+```bash
 
 bash -x audit_etc_world_writable.sh
 
@@ -824,16 +834,23 @@ bash -x audit_etc_world_writable.sh
 + echo 'Audit complete. REsults saved to world_writable_etc_files.txt'
 Audit complete. REsults saved to world_writable_etc_files.txt
 
+```bash
+
 # Exit code Verification
+
+```bash
 
 echo $?
 0
 
+```bash
+
 # Cleanup
 
+```bash
 rm -f audit_etc_world_writable.txt
 
-
+```bash
 
 
  

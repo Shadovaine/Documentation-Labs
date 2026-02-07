@@ -1,36 +1,61 @@
 ---
 
-## Lab 04 - Audit: World-Writable Files in /etc
+# Lab04 - World Writable Audit
 
-Every lab README **must** contain the following sections:
+## 1. Objective
 
-### 1. Objective
-Audi the /etc directory to identify world-writable files, output the results to a file, and sort them for review. This lab reinforces secure permission auditing using loops, conditionals, and file tests in Bash.
+- Audit the /etc directory to identify world-writable files
+- Output the results to a file
+- Sort them for review. 
 
-### 2. Environment
-- OS:
-- Version:
-- Kernel:
-- VM/Bare Metal:
-- Network mode:
-- User context (root / sudo / user):
+This lab reinforces secure permission auditing using loops, conditionals, and file tests in Bash.
 
-### 3. Preconditions
+---
+
+## 2. Environment
+
+- Target OS: Rocky Linux (RHEL-based)
+- Target Kernel: Linux 6.12.0*124.28.1.el10_1.x86_64
+- Control OS: Kali Linux
+- Control Kernel: Linux 6.185.5+kali-amd64
+- Version: 2025.4
+- Execution Context: Local VMware Workstation
+- VM/Bare Metal: NO
+- Network mode: NAT
+- User context (root / sudo / user): Non-root with sudo access
+
+Note: Although documnetation was written from a Kali-Linux workstation, the
+concepts and behaviors demonstrated are distribution-agnostic and directly
+applicable to RHEL-based systems.
+
+---
+
+## 3. Preconditions
+
+- A Linux OS with Bash installed (`/bin/bash`)
 - User has read access to /etc
-- Script executed as a non-destructive audit
-- Bash shell available (/sur/bin/env bash)
-- No SELinux restriction blocking stat
+- Script executed as a non-destructive environment
+- Interactive shell may be zsh; script explicitly executes under bash via
+  shebang
 
-### 4. Procedure
-- create the script
+---
+
+## 4. Procedure
+
+- Create the script
 - Make script executable
 - Execute the Audit
 
-### 5. Validation
+---
+
+## 5. Validation
+
 - Confirm output exists and is sorted
 
+---
 
-### 6. Results
+## 6. Results
+
 - Expected Behavior
     - File exists
     - Output is alphabetically sorted
@@ -38,14 +63,18 @@ Audi the /etc directory to identify world-writable files, output the results to 
       - File path
       - Octal permission value
 
-### 7. cleanup / Revert
-- run `rm` command to delete files
+---
 
+## 7. Cleanup / Revert
+
+- run `rm` command to delete files
 
 ---
 
 ## Validation Philosophy
+
 Validation is required.
+
 Examples:
 - `systemctl status`
 - `ss -tulnp`
@@ -58,7 +87,9 @@ No validation = incomplete lab.
 ---
 
 ## Troubleshooting Philosophy
+
 Errors are expected and documented. 
+
 Each issue should include:
 - Symptom
 - Root cause
@@ -68,7 +99,9 @@ Each issue should include:
 ---
 
 ## Decision Logging
+
 Every non-default or opinionated choice is explained.
+
 Examples: 
 - Filesystem selection
 - SELinux booleans
@@ -78,6 +111,7 @@ Examples:
 ---
 
 ## Change Log
+
 Include:
 - YYYY-MM-DD
 - Lab added:
@@ -86,6 +120,7 @@ Include:
 ---
 
 ## Ethics & Safety
+
 - No unauthorized access
 - No production systems
 - All offensive tools used in isolated labs only.
@@ -93,4 +128,5 @@ Include:
 ---
 
 ## Status 
+
 Active - continuously updated as skills improve.

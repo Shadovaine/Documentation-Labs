@@ -1,6 +1,10 @@
-# Commands for Lab 03
+# Lab03 - User Locking Commands Executed
 
-## to run script
+## Command Log
+
+## Run script with:
+
+```bash
 
 sudo ./lock_user.sh <username>
 
@@ -15,3 +19,6 @@ sudo tail /var/log/user_lock.log
 ## To unlock the account
 
 sudo usermod -U <username>
+
+```bash
+

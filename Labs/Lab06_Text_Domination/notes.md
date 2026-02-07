@@ -1,4 +1,4 @@
-# Notes
+# Lab06 - Text Domination Notes
 
 ## --- When to Create a Notes.md for a Lab ---
 - When you have a "ohh, that's why"
